@@ -2,12 +2,17 @@ FROM node:22-alpine
 
 WORKDIR /app
 
-COPY package*.json ./
+COPY backend/package*.json ./backend/
 
-RUN npm install --omit=dev
+WORKDIR /app/backend
 
-COPY . .
+RUN npm ci --omit=dev
+
+WORKDIR /app
+
+COPY backend/ ./backend/
+COPY frontend/ ./frontend/
 
 EXPOSE 8080
 
-CMD ["node", "server.js"]
+CMD ["node", "backend/server.js"]
