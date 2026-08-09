@@ -31,7 +31,7 @@ async function bootstrap() {
     document.querySelectorAll('[data-user-id]').forEach((el) => { el.textContent = me.user.id; });
     document.querySelectorAll('[data-api-key-status]').forEach((el) => { el.textContent = me.user.api_key ? 'Active' : 'Not generated'; });
     if (document.getElementById('masked-api-key')) {
-      document.getElementById('masked-api-key').textContent = me.user.api_key ? maskKey(me.user.api_key) : 'Not available';
+      document.getElementById('masked-api-key').textContent = me.user.api_key ? me.user.api_key : 'Not available';
     }
     if (document.getElementById('account-created')) {
       document.getElementById('account-created').textContent = new Date(me.user.created_at).toLocaleDateString();
