@@ -40,6 +40,21 @@ app.get('/dashboard.html', authMiddleware, (req, res) => {
 // Serve frontend static files (public)
 app.use(express.static(path.join(__dirname, '..', 'frontend')));
 
+// Explicitly serve main frontend pages so production (Railway) resolves them
+const frontendRoot = path.join(__dirname, '..', 'frontend');
+app.get(['/', '/index.html'], (req, res) => {
+  res.sendFile(path.join(frontendRoot, 'index.html'));
+});
+app.get('/login.html', (req, res) => {
+  res.sendFile(path.join(frontendRoot, 'login.html'));
+});
+app.get('/register.html', (req, res) => {
+  res.sendFile(path.join(frontendRoot, 'register.html'));
+});
+app.get('/invoices.html', (req, res) => {
+  res.sendFile(path.join(frontendRoot, 'invoices.html'));
+});
+
 // Example protected API route
 app.get('/api/protected/profile', authMiddleware, async (req, res) => {
   // req.user set by middleware
