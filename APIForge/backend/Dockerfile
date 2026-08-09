@@ -8,8 +8,6 @@ RUN npm ci --omit=dev
 
 COPY APIForge/backend/ ./
 
-COPY APIForge/frontend/ /frontend/
-
 EXPOSE 8080
 
 CMD ["node", "server.js"]
