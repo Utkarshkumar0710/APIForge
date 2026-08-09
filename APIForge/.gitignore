@@ -1,0 +1,33 @@
+# Dependencies
+node_modules/
+backend/node_modules/
+frontend/node_modules/
+
+# Environment files and secrets
+.env
+.env.*
+!.env.example
+backend/.env
+backend/.env.*
+!backend/.env.example
+
+# Local/generated runtime files
+/invoices/
+*.pdf
+*.log
+*.tmp
+*.bak
+*.swp
+*.swo
+
+# Test and debug artifacts
+backend/.api_test.js
+backend/.api_test_results.json
+backend/*.pdf
+backend/*.log
+backend/.DS_Store
+
+# OS/editor clutter
+.DS_Store
+Thumbs.db
+.vscode/

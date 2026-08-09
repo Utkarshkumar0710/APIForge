@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Register — APIForge</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="auth-page">
+  <div class="auth-shell">
+    <div class="auth-card">
+      <div class="auth-heading">
+        <p class="eyebrow">Create account</p>
+        <h1>Start your developer journey.</h1>
+        <p>Register to receive a real API key and access the live weather endpoint.</p>
+      </div>
+      <form id="register-form" class="auth-form">
+        <label>Full Name
+          <input name="full_name" placeholder="Alex Chen" required />
+        </label>
+        <label>Email
+          <input name="email" type="email" placeholder="alex@example.com" required />
+        </label>
+        <label>Company / Project Name <span class="hint">Optional</span>
+          <input name="company" placeholder="Northwind Labs" />
+        </label>
+        <label>Password
+          <div class="password-row">
+            <input name="password" type="password" placeholder="Create a strong password" required />
+            <button type="button" class="ghost-btn" data-show-password="[name='password']">Show</button>
+          </div>
+        </label>
+        <label>Confirm Password
+          <div class="password-row">
+            <input name="confirm_password" type="password" placeholder="Re-enter password" required />
+            <button type="button" class="ghost-btn" data-show-password="[name='confirm_password']">Show</button>
+          </div>
+        </label>
+        <div id="form-message" class="form-message"></div>
+        <button class="button button-primary" type="submit">Create Account</button>
+      </form>
+      <p class="auth-switch">Already have an account? <a href="/login.html">Sign in</a></p>
+    </div>
+  </div>
+  <script src="js/toast.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

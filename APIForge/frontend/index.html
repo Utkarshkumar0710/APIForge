@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>APIForge — Build. Connect. Monitor. Bill.</title>
+  <meta name="description" content="Premium API developer platform for real weather requests, usage monitoring, billing, and invoice generation." />
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="landing-page">
+  <header class="topbar">
+    <a class="brand" href="#hero">APIForge</a>
+    <nav class="nav-links">
+      <a href="#how-it-works" data-scroll>How it works</a>
+      <a href="#features" data-scroll>Features</a>
+      <a href="#playground" data-scroll>API demo</a>
+      <a href="#faq" data-scroll>FAQ</a>
+      <a class="button button-secondary" href="/register.html">Get Started</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero-section" id="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Real developer API platform</p>
+        <h1>Build. Connect. Monitor. Bill.</h1>
+        <p class="hero-text">Ship faster with a premium API experience that gives developers real weather data, usage insights, and billing visibility in one polished workspace.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="/register.html">Get Started Free</a>
+          <a class="button button-ghost" href="#playground" data-scroll>Explore API</a>
+        </div>
+        <div class="hero-pills">
+          <span>Real OpenWeather integration</span>
+          <span>MySQL usage tracking</span>
+          <span>Invoice generation</span>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="code-window">
+          <div class="code-header">
+            <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            <span class="window-title">request.js</span>
+          </div>
+          <pre><code>GET /api/v1/weather?city=Pune
+X-API-Key: APF-XXXX-XXXX-XXXX
+
+{
+  "city": "Pune, IN",
+  "temperature": 27.45,
+  "condition": "Clouds"
+}</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="how-it-works">
+      <div class="section-heading">
+        <p class="eyebrow">How APIForge works</p>
+        <h2>A complete developer workflow from API key to billing.</h2>
+      </div>
+      <div class="grid three-up">
+        <article class="info-card">
+          <h3>1. Create an account</h3>
+          <p>Register in minutes and receive a developer API key instantly.</p>
+        </article>
+        <article class="info-card">
+          <h3>2. Run real requests</h3>
+          <p>Use the live weather endpoint and watch responses arrive from the real OpenWeather API.</p>
+        </article>
+        <article class="info-card">
+          <h3>3. Track and bill</h3>
+          <p>Every request is recorded, summarized, and reflected in your invoice history.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="features">
+      <div class="section-heading">
+        <p class="eyebrow">Features</p>
+        <h2>Everything a modern API product needs.</h2>
+      </div>
+      <div class="grid three-up">
+        <article class="info-card">
+          <h3>Live API playground</h3>
+          <p>Try real requests against the existing backend and inspect the live response payload.</p>
+        </article>
+        <article class="info-card">
+          <h3>Usage insights</h3>
+          <p>Monitor monthly and daily calls with real database-backed metrics.</p>
+        </article>
+        <article class="info-card">
+          <h3>Free billing model</h3>
+          <p>Stay on the current free plan with transparent request limits and invoice records.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="playground">
+      <div class="section-heading">
+        <p class="eyebrow">Real API demonstration</p>
+        <h2>See the live weather endpoint in action.</h2>
+      </div>
+      <div class="demo-card">
+        <div class="demo-panel">
+          <h3>Request</h3>
+          <pre><code>GET /api/v1/weather?city=Pune</code></pre>
+        </div>
+        <div class="demo-panel">
+          <h3>Response</h3>
+          <pre><code>{
+  "city": "Pune, IN",
+  "temperature": 27.45,
+  "condition": "Clouds"
+}</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Developer workflow</p>
+        <h2>Designed for clarity, trust, and speed.</h2>
+      </div>
+      <div class="grid two-up">
+        <article class="info-card">
+          <h3>Secure API key flow</h3>
+          <p>Your API key remains server-side and is only surfaced to your account in a masked format.</p>
+        </article>
+        <article class="info-card">
+          <h3>Professional dashboard</h3>
+          <p>Switch from landing to dashboard and manage usage, invoices, and requests in one place.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="section-heading">
+        <p class="eyebrow">FAQ</p>
+        <h2>Common questions from developers.</h2>
+      </div>
+      <div class="faq-list">
+        <details open>
+          <summary>Is the weather API real?</summary>
+          <p>Yes. The platform calls the real OpenWeather API through the existing backend integration.</p>
+        </details>
+        <details>
+          <summary>Do you store secrets in the browser?</summary>
+          <p>No. Sensitive credentials remain server-side and are never exposed in frontend code.</p>
+        </details>
+        <details>
+          <summary>Is billing real?</summary>
+          <p>The current plan is a free developer plan. Billing remains informational and uses the existing invoice system.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="section cta-section">
+      <h2>Launch your developer experience today.</h2>
+      <p>Create an account and explore the live API immediately.</p>
+      <a class="button button-primary" href="/register.html">Get Started Free</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© 2026 APIForge. Built for real API developers.</p>
+  </footer>
+
+  <script src="js/toast.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

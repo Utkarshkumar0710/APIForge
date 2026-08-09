@@ -1,0 +1,8 @@
+# Local backend-only secrets and artifacts
+.env
+.env.*
+!.env.example
+*.pdf
+*.log
+*.tmp
+node_modules/
