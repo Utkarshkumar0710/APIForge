@@ -1,182 +1,177 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Developer Dashboard — APIForge</title>
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body data-page="dashboard">
-  <div class="dashboard-shell">
-    <aside class="sidebar">
-      <div class="brand-block">
-        <div class="brand">APIForge</div>
-        <p>Developer workspace</p>
+<main class="dashboard-main">
+  <header class="topbar-dashboard">
+    <div>
+      <p class="eyebrow">APIForge · Founded by Utkarsh Kumar</p>
+      <h1>Welcome back, <span data-user-name>Developer</span></h1>
+      <p class="muted">API Management & Usage Monitoring Platform</p>
+    </div>
+    <div class="topbar-meta">
+      <div class="meta-pill"><strong>API Status</strong><span data-api-key-status>Checking</span></div>
+      <div class="meta-pill"><strong>Email</strong><span data-user-email>—</span></div>
+    </div>
+  </header>
+
+  <section id="overview" class="hero-grid">
+    <article class="card highlight-card">
+      <p class="eyebrow">Current usage</p>
+      <h2 id="calls-card">0</h2>
+      <p>Monthly API calls</p>
+    </article>
+
+    <article class="card highlight-card">
+      <p class="eyebrow">Remaining requests</p>
+      <h2 id="remaining-card">0</h2>
+      <p>Free requests left</p>
+    </article>
+
+    <article class="card highlight-card">
+      <p class="eyebrow">Usage</p>
+      <h2 id="usage-card">0%</h2>
+      <p>Current usage percentage</p>
+    </article>
+
+    <article class="card highlight-card">
+      <p class="eyebrow">Current bill</p>
+      <h2 id="bill-card">$0.00</h2>
+      <p>Free plan</p>
+    </article>
+  </section>
+
+  <section class="dashboard-grid">
+    <article class="card card-large">
+      <div class="card-title-row">
+        <h3>Usage overview</h3>
+        <span class="pill">Live</span>
       </div>
-      <nav class="sidebar-nav">
-        <a href="#overview" class="active">Overview</a>
-        <a href="#playground">API Playground</a>
-        <a href="#api-key">My API Key</a>
-        <a href="#usage">Usage</a>
-        <a href="#billing">Billing</a>
-        <a href="#invoices">Invoices</a>
-        <a href="#docs">Docs</a>
-        <a href="#profile">Profile</a>
-      </nav>
-      <button class="button button-ghost" data-logout>Logout</button>
-    </aside>
 
-    <main class="dashboard-main">
-      <header class="topbar-dashboard">
-        <div>
-          <p class="eyebrow">Developer Dashboard</p>
-          <h1>Welcome back, <span data-user-name>Developer</span></h1>
+      <div class="progress-row">
+        <div class="progress-track">
+          <div id="usage-bar" class="progress-fill"></div>
         </div>
-        <div class="topbar-meta">
-          <div class="meta-pill"><strong>API Status</strong><span data-api-key-status>Checking</span></div>
-          <div class="meta-pill"><strong>Email</strong><span data-user-email>—</span></div>
+        <div id="usage-percent" class="metric">0%</div>
+      </div>
+
+      <div class="stats-row">
+        <div><strong id="total-calls">0</strong><span>Total calls</span></div>
+        <div><strong id="today-calls">0</strong><span>Today</span></div>
+        <div><strong id="monthly-calls">0</strong><span>Monthly</span></div>
+        <div><strong id="remaining-requests">0</strong><span>Remaining</span></div>
+      </div>
+    </article>
+
+    <article class="card card-large">
+      <div class="card-title-row">
+        <h3>Recent activity</h3>
+        <a class="ghost-link" href="#usage">View usage</a>
+      </div>
+      <div id="recent-activity" class="stack-list"></div>
+    </article>
+  </section>
+
+  <section class="dashboard-grid">
+    <article id="playground" class="card card-large">
+      <div class="card-title-row">
+        <h3>API playground</h3>
+        <span class="pill">Real request</span>
+      </div>
+
+      <form id="playground-form" class="stack-form">
+        <label>City
+          <input name="city" value="Pune" required />
+        </label>
+
+        <label>API Key
+          <input name="apiKey" placeholder="Use your existing key" />
+        </label>
+
+        <button class="button button-primary" type="submit">
+          Send Request
+        </button>
+      </form>
+
+      <div class="result-box">
+        <div class="result-header">
+          <span>Status: <strong id="playground-status">Ready</strong></span>
+          <span>Response time: <strong id="playground-time">—</strong></span>
+          <span>Usage: <strong id="playground-usage">—</strong></span>
         </div>
-      </header>
 
-      <section id="overview" class="hero-grid">
-        <article class="card highlight-card">
-          <p class="eyebrow">Current usage</p>
-          <h2 id="calls-card">0</h2>
-          <p>Monthly API calls</p>
-        </article>
-        <article class="card highlight-card">
-          <p class="eyebrow">Remaining requests</p>
-          <h2 id="remaining-card">0</h2>
-          <p>Free requests left</p>
-        </article>
-        <article class="card highlight-card">
-          <p class="eyebrow">Usage</p>
-          <h2 id="usage-card">0%</h2>
-          <p>Current usage percentage</p>
-        </article>
-        <article class="card highlight-card">
-          <p class="eyebrow">Current bill</p>
-          <h2 id="bill-card">$0.00</h2>
-          <p>Free plan</p>
-        </article>
-      </section>
+        <pre id="playground-output">{ "message": "No request yet." }</pre>
+      </div>
+    </article>
 
-      <section class="dashboard-grid">
-        <article class="card card-large">
-          <div class="card-title-row">
-            <h3>Usage overview</h3>
-            <span class="pill">Live</span>
-          </div>
-          <div class="progress-row">
-            <div class="progress-track"><div id="usage-bar" class="progress-fill"></div></div>
-            <div id="usage-percent" class="metric">0%</div>
-          </div>
-          <div class="stats-row">
-            <div><strong id="total-calls">0</strong><span>Total calls</span></div>
-            <div><strong id="today-calls">0</strong><span>Today</span></div>
-            <div><strong id="monthly-calls">0</strong><span>Monthly</span></div>
-            <div><strong id="remaining-requests">0</strong><span>Remaining</span></div>
-          </div>
-        </article>
+    <article id="api-key" class="card card-large">
+      <div class="card-title-row">
+        <h3>My API key</h3>
+        <span class="pill">Secure</span>
+      </div>
 
-        <article class="card card-large">
-          <div class="card-title-row">
-            <h3>Recent activity</h3>
-            <a class="ghost-link" href="#usage">View usage</a>
-          </div>
-          <div id="recent-activity" class="stack-list"></div>
-        </article>
-      </section>
+      <div class="key-panel">
+        <div class="key-label">API Key</div>
+        <div id="masked-api-key" class="key-value">Loading...</div>
 
-      <section class="dashboard-grid">
-        <article id="playground" class="card card-large">
-          <div class="card-title-row">
-            <h3>API playground</h3>
-            <span class="pill">Real request</span>
-          </div>
-          <form id="playground-form" class="stack-form">
-            <label>City
-              <input name="city" value="Pune" required />
-            </label>
-            <label>API Key
-              <input name="apiKey" placeholder="Use your existing key" />
-            </label>
-            <button class="button button-primary" type="submit">Send Request</button>
-          </form>
-          <div class="result-box">
-            <div class="result-header">
-              <span>Status: <strong id="playground-status">Ready</strong></span>
-              <span>Response time: <strong id="playground-time">—</strong></span>
-              <span>Usage: <strong id="playground-usage">—</strong></span>
-            </div>
-            <pre id="playground-output">{ "message": "No request yet." }</pre>
-          </div>
-        </article>
+        <p class="muted">
+          Never expose your API key publicly. Use it only in authenticated requests.
+        </p>
+      </div>
+    </article>
+  </section>
 
-        <article id="api-key" class="card card-large">
-          <div class="card-title-row">
-            <h3>My API key</h3>
-            <span class="pill">Secure</span>
-          </div>
-          <div class="key-panel">
-            <div class="key-label">API Key</div>
-            <div id="masked-api-key" class="key-value">Loading...</div>
-            <p class="muted">Never expose your API key publicly. Use it only in authenticated requests.</p>
-          </div>
-        </article>
-      </section>
+  <section class="dashboard-grid">
+    <article id="usage" class="card card-large">
+      <div class="card-title-row">
+        <h3>Usage summary</h3>
+        <span class="pill">MySQL backed</span>
+      </div>
 
-      <section class="dashboard-grid">
-        <article id="usage" class="card card-large">
-          <div class="card-title-row">
-            <h3>Usage summary</h3>
-            <span class="pill">MySQL backed</span>
-          </div>
-          <div class="stats-row compact">
-            <div><strong id="total-calls-2">0</strong><span>Total calls</span></div>
-            <div><strong id="today-calls-2">0</strong><span>Today</span></div>
-            <div><strong id="monthly-calls-2">0</strong><span>Monthly</span></div>
-          </div>
-        </article>
+      <div class="stats-row compact">
+        <div><strong id="total-calls-2">0</strong><span>Total calls</span></div>
+        <div><strong id="today-calls-2">0</strong><span>Today</span></div>
+        <div><strong id="monthly-calls-2">0</strong><span>Monthly</span></div>
+      </div>
+    </article>
 
-        <article id="billing" class="card card-large">
-          <div class="card-title-row">
-            <h3>Billing</h3>
-            <span class="pill">Free plan</span>
-          </div>
-          <p class="muted">Current plan: Free Developer Plan</p>
-          <p class="muted">Free requests: 100 per month</p>
-          <p class="muted">Usage is tracked in the existing database and invoices are generated through the current backend system.</p>
-        </article>
-      </section>
+    <article id="billing" class="card card-large">
+      <div class="card-title-row">
+        <h3>Billing</h3>
+        <span class="pill">Free plan</span>
+      </div>
 
-      <section class="dashboard-grid">
-        <article id="invoices" class="card card-large">
-          <div class="card-title-row">
-            <h3>Recent invoices</h3>
-            <span class="pill">PDF ready</span>
-          </div>
-          <div id="invoice-list" class="stack-list"></div>
-        </article>
+      <p class="muted">Current plan: Free Developer Plan</p>
+      <p class="muted">Free requests: 100 per month</p>
+      <p class="muted">
+        Usage is tracked in the existing database and invoices are generated through the current backend system.
+      </p>
+    </article>
+  </section>
 
-        <article id="profile" class="card card-large">
-          <div class="card-title-row">
-            <h3>Profile</h3>
-            <span class="pill">Account</span>
-          </div>
-          <div class="profile-list">
-            <div><strong>Name</strong><span data-user-name>—</span></div>
-            <div><strong>Email</strong><span data-user-email>—</span></div>
-            <div><strong>Developer ID</strong><span data-user-id>—</span></div>
-            <div><strong>Account created</strong><span id="account-created">—</span></div>
-            <div><strong>API key status</strong><span data-api-key-status>—</span></div>
-          </div>
-        </article>
-      </section>
-    </main>
-  </div>
+  <section class="dashboard-grid">
+    <article id="invoices" class="card card-large">
+      <div class="card-title-row">
+        <h3>Recent invoices</h3>
+        <span class="pill">PDF ready</span>
+      </div>
 
-  <script src="js/toast.js"></script>
-  <script src="js/app.js"></script>
-</body>
-</html>
+      <div id="invoice-list" class="stack-list"></div>
+    </article>
+
+    <article id="profile" class="card card-large">
+      <div class="card-title-row">
+        <h3>Profile</h3>
+        <span class="pill">Account</span>
+      </div>
+
+      <div class="profile-list">
+        <div><strong>Name</strong><span data-user-name>—</span></div>
+        <div><strong>Email</strong><span data-user-email>—</span></div>
+        <div><strong>Developer ID</strong><span data-user-id>—</span></div>
+        <div><strong>Account created</strong><span id="account-created">—</span></div>
+        <div><strong>API key status</strong><span data-api-key-status>—</span></div>
+      </div>
+    </article>
+  </section>
+
+  <footer class="muted" style="text-align: center; padding: 24px 0;">
+    APIForge · Built & Developed by Utkarsh Kumar · 2026
+  </footer>
+</main>
