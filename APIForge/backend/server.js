@@ -109,9 +109,10 @@ app.get('/api/test-db', async (req, res) => {
 });
 
 const PORT = process.env.PORT || 4000;
+const HOST = '0.0.0.0';
 if (require.main === module) {
-  app.listen(PORT, () => {
-    console.log(`APIForge backend listening on port ${PORT}`);
+  app.listen(PORT, HOST, () => {
+    console.log(`APIForge backend listening on ${HOST}:${PORT}`);
   });
 }
 

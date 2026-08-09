@@ -4,7 +4,8 @@
   "description": "APIForge backend server",
   "main": "server.js",
   "scripts": {
-    "start": "node start-with-browser.js",
+    "start": "node server.js",
+    "start:local": "node start-with-browser.js",
     "dev": "nodemon server.js",
     "test": "jest --runInBand"
   },
