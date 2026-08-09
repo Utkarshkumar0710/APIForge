@@ -1,17 +1,15 @@
-FROM node:18-alpine
+FROM node:22-alpine
 
-# Create app directory
-WORKDIR /usr/src/app
+WORKDIR /app
 
-# Install app dependencies
-COPY package.json package-lock.json* ./
-RUN npm ci --only=production || npm install --production
+COPY APIForge/backend/package*.json ./
 
-# Bundle app source
-COPY . ./
+RUN npm ci --omit=dev
 
-ENV NODE_ENV=production
-EXPOSE 4000
+COPY APIForge/backend/ ./
 
-# Use PORT environment variable provided by Railway
+COPY APIForge/frontend/ /frontend/
+
+EXPOSE 8080
+
 CMD ["node", "server.js"]
